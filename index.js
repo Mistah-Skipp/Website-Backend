@@ -12,6 +12,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', game);
 
-app.listen(3000, () => {
+app.listen(8000, () => {
   console.log('Server Awake');
 });

@@ -23,9 +23,10 @@ class database{
     var makeTable = `CREATE TABLE backlog(
                      ID INTEGER PRIMARY KEY AUTOINCREMENT,
                      title TEXT,
-                     active TEXT,
+                     status TEXT,
                      platform TEXT,
-                     plan TEXT
+                     plan TEXT,
+                     notes TEXT
                      );`;
     this.db.run(makeTable, (err) =>{
       if(err){
@@ -37,12 +38,12 @@ class database{
 
   createRecord(record){
     console.log("Adding Entry: "+record)
-    var insert = `INSERT INTO backlog(title,active,platform,plan)
-                  VALUES(?,?,?,?)`;
+    var insert = `INSERT INTO backlog(title,status,platform,plan,notes)
+    VALUES(?,?,?,?,?)`;
     console.log(record[0])
     for(var i = 0; i < record.length; i++){
 
-    var values = [record[i].title, record[i].active,record[i].platform,record[i].plan];
+    var values = [record[i].title, record[i].status,record[i].platform,record[i].plan, record[i].notes];
     this.db.run(insert,values,(err) =>{
       if(err){
         return console.log(err.message);
@@ -53,7 +54,7 @@ class database{
   }
   
   printTable(res){
-    var print = "SELECT * FROM backlog ORDER BY title ASC";
+    var print = "SELECT * FROM backlog ";
     var table = []
      this.db.all(print,(err,rows) =>{
       if(err){
