@@ -6,9 +6,7 @@ const varb = new database()
 module.exports = router;
 //varb.dropTable();
 //varb.createTable();
-//varb.createRecord('Game Name','Platform on','Plan to','Notes for');
-
-
+//varb.wipe();
 
 
 router.get('/',  function(req, res){
@@ -18,21 +16,22 @@ router.get('/data',  function(req, res){
    varb.printTable(res)
 });
 
-router.post('/search',  function(req, res){
-  console.log(req.body)
-   varb.searchDB(req.body.search,res)
-});
-
 router.post('/send', function(req, res){
-  console.log("Received!")
+  console.log("Received create")
   request = [req.body];
-
   varb.createRecord(request)
-  
-  
+
 });
 
 router.delete('/delete', function(req,res){
-  console.log("Received!")
+  console.log("Received delete")
   res.send(varb.deleteRow(req.body.getremoved))
 });
+
+router.put('/updateData',function(req,res){
+  console.log("Reciveved update");
+  varb.updateTable(req.body.oldData,req.body.newData,req.body.record);
+
+});
+
+//change requests go here, actual editing code goes in databse.js

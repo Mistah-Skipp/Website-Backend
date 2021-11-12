@@ -37,24 +37,24 @@ class database{
   }
 
   createRecord(record){
-    console.log("Adding Entry: "+record)
-    var insert = `INSERT INTO backlog(title,status,platform,plan,notes)
-    VALUES(?,?,?,?,?)`;
+    console.log("Adding Entry: "+ record)
+    var insert = `INSERT INTO backlog(title, status, platform, plan, notes)
+    VALUES(?, ?, ?, ?, ?)`;
     console.log(record[0])
     for(var i = 0; i < record.length; i++){
 
-    var values = [record[i].title, record[i].status,record[i].platform,record[i].plan, record[i].notes];
+    var values = [record[i].title , record[i].status , record[i].platform,record[i].plan , record[i].notes];
     this.db.run(insert,values,(err) =>{
       if(err){
         return console.log(err.message);
       }
-      console.log("Record added"+this)
+      console.log("Record added")
     })
     }
   }
   
   printTable(res){
-    var print = "SELECT * FROM backlog ";
+    var print = "SELECT * FROM backlog ORDER BY title ASC ";
     var table = []
      this.db.all(print,(err,rows) =>{
       if(err){
@@ -69,8 +69,9 @@ class database{
      
   }
 
-  updateTable(old,entry,record){
-    var update = `UPDATE backlog SET `+record+` = \"`+entry+`\"WHERE id = \"`+old+`\"`
+
+  updateTable(oldData,newData,record){
+    var update = `UPDATE backlog SET `+record+` = \"`+newData+`\"WHERE id = \"`+oldData+`\"`
     
     console.log(update)
     this.db.all(update,(err) =>{
@@ -81,20 +82,19 @@ class database{
       console.log("Table updated")
     })
   }
-
   deleteRow(id){
     var destroy = `DELETE FROM backlog 
-                  WHERE id = \"`+id+`\"`
+                  WHERE title = \"`+id+`\"`
     
     this.db.all(destroy,(err) =>{
-      console.log(update)
+      //console.log(update)
       if(err){
         console.log(err.message)
       }
       console.log("Row destroyed")
+      console.log(id);
     })
   }
-
   searchDB(name,res){
     var search = `SELECT * FROM backlog
                   WHERE title LIKE \"%`+name+`%\"`
@@ -110,6 +110,16 @@ class database{
       res.send(table)
     })
   }
+  wipe(){
+        var wipeTable = `DELETE FROM backlog`;
+        this.db.run(wipeTable, (err) =>{
+        if(err){
+            return console.log(err.message);
+        }
+        console.log("Table Cleared")
+        });
+    }
+
 }
 
 module.exports = {database};
