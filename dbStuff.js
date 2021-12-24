@@ -25,7 +25,7 @@ router.post('/send', function(req, res){
 
 router.delete('/delete', function(req,res){
   console.log("Received delete")
-  res.send(varb.deleteRow(req.body.getremoved))
+  varb.deleteRow(req.body.getremoved)
 });
 
 router.put('/update',function(req,res){

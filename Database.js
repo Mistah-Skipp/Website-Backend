@@ -83,11 +83,10 @@ class database{
     })
   }
   deleteRow(id){
-    var destroy = `DELETE FROM backlog 
-                  WHERE title = \"`+id+`\"`
+    var destroy = `DELETE FROM backlog WHERE title =\"`+id+`\"`
     
     this.db.all(destroy,(err) =>{
-      //console.log(update)
+      console.log(destroy)
       if(err){
         console.log(err.message)
       }
