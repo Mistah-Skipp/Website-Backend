@@ -28,10 +28,12 @@ router.delete('/delete', function(req,res){
   res.send(varb.deleteRow(req.body.getremoved))
 });
 
-router.put('/updateData',function(req,res){
-  console.log("Reciveved update");
+router.put('/update',function(req,res){
+  console.log("Received update");
   varb.updateTable(req.body.oldData,req.body.newData,req.body.record);
+  res.send(true);
 
 });
+
 
 //change requests go here, actual editing code goes in databse.js

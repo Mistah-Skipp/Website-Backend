@@ -71,7 +71,7 @@ class database{
 
 
   updateTable(oldData,newData,record){
-    var update = `UPDATE backlog SET `+record+` = \"`+newData+`\"WHERE id = \"`+oldData+`\"`
+    var update = `UPDATE backlog SET `+record+` = \"`+newData+`\" WHERE title = \"`+oldData+`\"`
     
     console.log(update)
     this.db.all(update,(err) =>{
