@@ -1,0 +1,23 @@
+#top {
+    position:relative;
+    text-align:left;
+    background:#abcdef;
+    overflow:auto;
+    padding-bottom: 10px;
+}
+
+body{
+    background: #FFCCCC;
+    height:auto;
+
+}
+
+.dbug{
+    background: yellow;
+
+}
+
+#editToggle{
+    float:right;
+}
+

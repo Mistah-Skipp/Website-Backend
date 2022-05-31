@@ -3,6 +3,7 @@ var router = exp.Router();
 
 const { database } = require('./Database.js');
 const varb = new database()
+
 module.exports = router;
 //varb.dropTable();
 //varb.createTable();
@@ -10,22 +11,22 @@ module.exports = router;
 
 
 router.get('/',  function(req, res){
-   res.send("U cant C me")
+    res.redirect('../HTML/index.html');
    });
 router.get('/data',  function(req, res){
-   varb.printTable(res)
+   varb.printTable(res);
 });
 
 router.post('/send', function(req, res){
   console.log("Received create")
   request = [req.body];
-  varb.createRecord(request)
+  varb.createRecord(request);
 
 });
 
 router.delete('/delete', function(req,res){
-  console.log("Received delete")
-  varb.deleteRow(req.body.getremoved)
+  console.log("Received delete");
+  varb.deleteRow(req.body.getremoved);
 });
 
 router.put('/update',function(req,res){
