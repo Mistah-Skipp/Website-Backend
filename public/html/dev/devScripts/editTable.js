@@ -72,6 +72,37 @@ $('#bot').on('click', '#nEdit', function () {
     }
 })
 
+$.delete = function(url, data, callback, type){
+  if ( $.isFunction(data) ){
+    type = type || callback,
+        callback = data,
+        data = {}
+  }
+  return $.ajax({
+    url: url,
+    type: 'DELETE',
+    success: callback,
+    data: data,
+    contentType: type
+  });
+}
+
+$.put = function(url, data, callback, type){
+  if ( $.isFunction(data) ){
+    type = type || callback,
+    callback = data,
+    data = {}
+  }
+ 
+  return $.ajax({
+    url: url,
+    type: 'PUT',
+    success: callback,
+    data: data,
+    contentType: type
+  });
+}
+
  /*DBUG LINES
     var thisStatus = $(this).closest("tr").find("#sEdit").text();
     var thisTitle = $(this).closest("tr").find("#tEdit").text();
