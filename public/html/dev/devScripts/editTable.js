@@ -18,7 +18,7 @@ $('#bot').on('click', '#deleteEnt', function () {
         alert("Deleting: " + title);
         var values = { getremoved: title }
         console.log(values);
-        $.delete("https://Website-Server.mistahskipp.repl.co/delete", values)
+        $.delete("https://Website-Server.mistahskipp.repl.co/delete", values);
         refresh();
 
     } else {
@@ -68,6 +68,7 @@ $('#bot').on('click', '#nEdit', function () {
         var values = { oldData: thisTitle, newData: newNote, record: "notes" }
         $.put("https://Website-Server.mistahskipp.repl.co/update", values);
         setTimeout(refresh, 300);
+        console.log("sent!");
     }
 })
 
