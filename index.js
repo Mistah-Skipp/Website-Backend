@@ -1,5 +1,6 @@
 const express = require('express');
 var cors = require('cors') 
+const keepAlive = require("./keepAlive.js");
 // for methods other than GET!!!
 
 var bodyParser = require('body-parser');
