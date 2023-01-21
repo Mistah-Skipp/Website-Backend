@@ -11,7 +11,7 @@ module.exports = router;
 
 
 router.get('/',  function(req, res){
-    res.redirect('/index.html');
+    res.redirect('../index.html');
    });
 
 router.get('/data',  function(req, res){
