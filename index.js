@@ -5,6 +5,8 @@ var cors = require('cors')
 var bodyParser = require('body-parser');
 
 const app = express();
+const port = 5001;
+app.listen(port);
 const game = require('./dbStuff.js');
 app.use(cors()); // for methods other than GET!!!
 app.use(bodyParser.json());
