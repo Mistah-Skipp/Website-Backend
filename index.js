@@ -11,7 +11,7 @@ app.use(
     bodyParser.urlencoded({extended:true,})
 )
 app.listen(port, ()=>{console.log("server running on port "+port)})
-
+app.use(express.static(path.join(__dirname,"public")));
 app.get('/', (req,res) =>{
     res.sendFile(path.join(__dirname, '/index.html'));
     console.log(__dirname);
