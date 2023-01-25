@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const app = express()
 const port = 5001;
 const db = require("./dbStuff.js");
+const path = require('path');
 
 app.db;
 app.use(bodyParser.json())
@@ -12,5 +13,5 @@ app.use(
 app.listen(port, ()=>{console.log("server running on port "+port)})
 
 app.get('/', (req,res) =>{
-    res.send("./index.html");
-})
+    res.sendFile(path.join(__dirname, '/index.html'));
+});
