@@ -2,7 +2,7 @@ console.log("editTable.js loaded");
 //Delete Entry
 function refresh() {
     $("tbody").children().remove();
-    fetch('https://website-backend-wbz8.onrender.com/data').then(response => response.json().then(data => { defaultdata = data; makeTable(data) }));
+    fetch('https://website-backend-plz0.onrender.com/data').then(response => response.json().then(data => { defaultdata = data; makeTable(data) }));
     //window.location.reload(true);
 }
 
@@ -18,7 +18,7 @@ $('#bot').on('click', '#deleteEnt', function () {
         alert("Deleting: " + title);
         var values = { getremoved: title }
         console.log(values);
-        $.delete("https://website-backend-wbz8.onrender.com/delete", values);
+        $.delete("https://website-backend-plz0.onrender.com/delete", values);
         refresh();
 
     } else {
@@ -35,7 +35,7 @@ $('#bot').on('click', '#sEdit', function () {
     var newStatus = window.prompt("Change Status:\nInstalled   Not Installed   Not Bought  Completed");
     if (newStatus != null) {
         var values = { oldData: thisTitle, newData: newStatus, record: "status" }
-        $.put("https://website-backend-wbz8.onrender.com/update", values);
+        $.put("https://website-backend-plz0.onrender.com/update", values);
         setTimeout(refresh, 300);
     }
 })
@@ -45,7 +45,7 @@ $('#bot').on('click', '#plEdit', function () {
     var newPlat = window.prompt("Change Platform:\nPC    PS4     Switch");
     if (newPlat != null) {
         var values = { oldData: thisTitle, newData: newPlat, record: "platform" }
-        $.put("https://website-backend-wbz8.onrender.com/update", values);
+        $.put("https://website-backend-plz0.onrender.com/update", values);
         setTimeout(refresh, 300);
     }
 })
@@ -55,7 +55,7 @@ $('#bot').on('click', '#pnEdit', function () {
     var newPlan = window.prompt("Change Plan:\nCasual    Max%    100%");
     if (newPlan != null) {
         var values = { oldData: thisTitle, newData: newPlan, record: "plan" }
-        $.put("https://website-backend-wbz8.onrender.com/update", values);
+        $.put("https://website-backend-plz0.onrender.com/update", values);
         setTimeout(refresh, 300);
     }
 })
@@ -66,7 +66,7 @@ $('#bot').on('click', '#nEdit', function () {
     var newNote = window.prompt("Edit Note:");
     if (newNote != null) {
         var values = { oldData: thisTitle, newData: newNote, record: "notes" }
-        $.put("https://website-backend-wbz8.onrender.com/update", values);
+        $.put("https://website-backend-plz0.onrender.com/update", values);
         setTimeout(refresh, 300);
         console.log("sent!");
     }

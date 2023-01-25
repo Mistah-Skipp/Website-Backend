@@ -11,7 +11,7 @@ $("#submit").click(function() {
         alert("Enter Game Name");
     }else{
         if(true)
-        {$.post("https://website-backend-wbz8.onrender.com/send", dataVal);}
+        {$.post("https://website-backend-plz0.onrender.com/send", dataVal);}
         window.location.href = window.location.href
         console.log("data logged");
     }
