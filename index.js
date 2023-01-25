@@ -12,5 +12,5 @@ app.use(
 app.listen(port, ()=>{console.log("server running on port "+port)})
 
 app.get('/', (req,res) =>{
-    res.send("../index.html");
+    res.send("./index.html");
 })
