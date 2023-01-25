@@ -5,7 +5,6 @@ const port = 5001;
 const path = require('path');
 const { database } = require('./Database.js');
 const db = new database()
-db.createTable();
 
 app.use(bodyParser.json())
 app.use(
@@ -19,6 +18,7 @@ app.get('/', (req,res) =>{
 
 app.get('/data',  function(req, res){
     db.printTable(res);
+    console.log("data here");
  });
  
  app.post('/send', function(req, res){
