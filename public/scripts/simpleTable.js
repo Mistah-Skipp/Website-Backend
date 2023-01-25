@@ -1,4 +1,4 @@
-console.log("page.js loaded");
+console.log("simpleTable.js loaded");
 const makeTable = (data) => {
     
     var tabledata = "<table id = \"botTable\"><thead><tr><th>Game</th><th>Status</th><th>Platform</th><th>Plan</th><th colspan=\"2\">Notes</th></tr></thead>"
