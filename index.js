@@ -14,4 +14,5 @@ app.listen(port, ()=>{console.log("server running on port "+port)})
 
 app.get('/', (req,res) =>{
     res.sendFile(path.join(__dirname, '/index.html'));
+    console.log(__dirname);
 });
