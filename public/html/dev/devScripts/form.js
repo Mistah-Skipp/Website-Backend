@@ -11,25 +11,9 @@ $("#submit").click(function() {
         alert("Enter Game Name");
     }else{
         if(true)
-        {$.post("https://w2-78xz.onrender.com/send", dataVal);}
+        {$.put("https://w2-78xz.onrender.com/send", dataVal);}
         window.location.href = window.location.href
         console.log("data logged");
     }
 })//submit button function
 
-
-$.put = function(url, data, callback, type){
-  if ( $.isFunction(data) ){
-    type = type || callback,
-    callback = data,
-    data = {}
-  }
- 
-  return $.ajax({
-    url: url,
-    type: 'PUT',
-    success: callback,
-    data: data,
-    contentType: type
-  });
-}
