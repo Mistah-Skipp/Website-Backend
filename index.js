@@ -6,7 +6,7 @@ const port = 5001;
 const path = require('path');
 const { database } = require('./Database.js');
 const db = new database()
-db.createTable();
+//db.createTable();
 app.use(bodyParser.json())
 app.use(
     bodyParser.urlencoded({extended:true,})
