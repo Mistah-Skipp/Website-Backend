@@ -5,7 +5,7 @@ const port = 5001;
 const path = require('path');
 const { database } = require('./Database.js');
 const db = new database()
-
+db.createTable();
 app.use(bodyParser.json())
 app.use(
     bodyParser.urlencoded({extended:true,})
@@ -13,7 +13,7 @@ app.use(
 app.listen(port, ()=>{console.log("server running on port "+port)})
 app.use(express.static(path.join(__dirname,"public")));
 app.get('/', (req,res) =>{
-    res.sendFile(path.join(__dirname, '/index.html'));
+    res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
 app.get('/data',  function(req, res){
