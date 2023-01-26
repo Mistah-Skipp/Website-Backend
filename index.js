@@ -1,7 +1,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const app = express()
+const app = express.Router()
 const port = 5001;
 const path = require('path');
 const { database } = require('./Database.js');
