@@ -6,7 +6,9 @@ const port = 5001;
 const path = require('path');
 const { database } = require('./Database.js');
 const db = new database()
+const cors = require("cors");
 //db.createTable();
+app.use(cors());
 app.use(bodyParser.json())
 app.use(
     bodyParser.urlencoded({extended:true,})
