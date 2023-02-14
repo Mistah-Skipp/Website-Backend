@@ -42,10 +42,10 @@ $("body").on('click', '#complete', function () {
         document.getElementById("bot").innerHTML = tabledata;
     }//displaying table from db
     var defaultdata;
-    fetch('https://w2-78xz.onrender.com/data').then(response => response.json().then(data => { defaultdata = data; makeTable(data) }));
+    fetch('https://website-backend-plz0.onrender.com/data').then(response => response.json().then(data => { defaultdata = data; makeTable(data) }));
 })
 $("body").on('click', '#original', function () {//shows normal table again
     $("tbody").children().remove();
     console.log("all Games!")
-    fetch('https://w2-78xz.onrender.com/data').then(response => response.json().then(data => {defaultdata = data; makeTable(data)}));
+    fetch('https://website-backend-plz0.onrender.com/data').then(response => response.json().then(data => {defaultdata = data; makeTable(data)}));
 })

@@ -54,5 +54,5 @@ const makeTable = (data) => {
 }//displaying table from db
 
 var defaultdata;
-fetch('https://w2-78xz.onrender.com/data').then(response => response.json().then(data => {defaultdata = data; makeTable(data)}));
+fetch('https://website-backend-plz0.onrender.com/data').then(response => response.json().then(data => {defaultdata = data; makeTable(data)}));
 console.log("Data fetched");

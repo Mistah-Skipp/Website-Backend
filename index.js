@@ -42,3 +42,5 @@ app.get('/data',  function(req, res){
    res.send(true);
  
  });
+
+ module.exports = app;
